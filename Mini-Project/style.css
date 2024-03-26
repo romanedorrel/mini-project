@@ -1,0 +1,64 @@
+
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content:end;
+        width: 5 rem;
+        text-align: center;
+        padding-left: 33%;
+        padding-right: 33%; 
+
+        .landing{
+            padding-bottom: 33%;
+        }
+        .container{
+            background-color: #b7bab8;
+            color: black; 
+            border: medium solid black;
+            .home{
+                text-align:right;
+                a{color: black;}
+            }
+        }
+        header{
+            background-color: black;
+            color: silver;
+            
+            
+        }
+        .btn{
+            background: red;
+        }
+        .nav {
+            border: medium solid;
+            background: black;
+            display: flex;
+            justify-content: space-between;
+            padding-left:2rem;
+            padding-right: 2rem;
+            a{color: red};
+            
+        }
+        .card-img-top{
+            width: 100%;
+        }
+        
+        .card{
+            background: red;
+            text-align: left;
+            
+        } 
+         .card-header, .card-text{
+            background: red;
+        } 
+        
+    }
+    .logo{animation-name:  fadeToBlack; animation-duration: 5s; 
+            animation-iteration-count: infinite; animation-direction:alternate-reverse ; }
+            
+        @keyframes fadeToBlack {
+            from{
+             opacity: 25%;;}   
+            to{
+            opacity: 100%;}   
+        }
