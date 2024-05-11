@@ -34,7 +34,7 @@ const updateUser = (req, res) => {
     })
     }
     
-    const deleteUser = (req, res) => {
+const deleteUser = (req, res) => {
     // deletes the user matching the ID from the param
     Models.User.findByIdAndDelete(req.params.id)
     .then(data => res.send({result: 200, data: data}))
