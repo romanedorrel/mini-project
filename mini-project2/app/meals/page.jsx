@@ -1,11 +1,12 @@
-import Link from "next/link";
+import Meals from "@/components/Meals";
 
-export default function Dash(){
-
-    return(
-        <div className="Dash">
-            <h1>Dashboard</h1>
-           <p> <Link href='/'>home</Link>.</p>
-        </div>
+export default function Meal() {
+    return (
+        
+            <div className='Meal'>
+                
+                <Meals/>
+            </div>
+        
     )
 }

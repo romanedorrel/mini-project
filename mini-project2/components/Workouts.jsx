@@ -17,7 +17,7 @@ export default function Workouts() {
                     value='fullBody' 
                     checked={workout === 'fullBody'}
                     onChange={handleWorkoutChoice} />
-                <label htmlFor="fullBody">FullBody</label><br />
+                <label htmlFor="fullBody"><h2>FullBody</h2></label><br />
                 <input 
                     type="radio" 
                     id="back" 
@@ -25,7 +25,7 @@ export default function Workouts() {
                     value='back' 
                     checked={workout === 'back'}
                     onChange={handleWorkoutChoice} />
-                <label htmlFor="back">Back/Bicep</label><br />
+                <label htmlFor="back"><h2>Back/Bicep</h2></label><br />
                 <input 
                     type="radio" 
                     id="chest" 
@@ -33,7 +33,7 @@ export default function Workouts() {
                     value='chest' 
                     checked={workout === 'chest'}
                     onChange={handleWorkoutChoice} />
-                <label htmlFor="chest">Chest/Tricep</label><br />
+                <label htmlFor="chest"><h2>Chest/Tricep</h2></label><br />
                 <input 
                     type="radio" 
                     id="shoulders" 
@@ -41,7 +41,7 @@ export default function Workouts() {
                     value='shoulders' 
                     checked={workout === 'shoulders'}
                     onChange={handleWorkoutChoice} />
-                <label htmlFor="shoulders">Shoulders/Traps</label><br />
+                <label htmlFor="shoulders"><h2>Shoulders/Traps</h2></label><br />
                 <input 
                     type="radio" 
                     id="legs" 
@@ -49,7 +49,7 @@ export default function Workouts() {
                     value='legs' 
                     checked={workout === 'legs'}
                     onChange={handleWorkoutChoice} />
-                <label htmlFor="legs">Legs/Glutes</label><br />
+                <label htmlFor="legs"><h2>Legs/Glutes</h2></label><br />
             </form>
             <p>{workout}</p>
         </div>

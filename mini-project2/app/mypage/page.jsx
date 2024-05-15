@@ -19,14 +19,14 @@ async function getPostsData(limit, page = 1) {
 
         const postList = posts.map(post => (
             <li key={post.id}><Link href={"/posts/" + post.id}>
-                Post #{post.id}: {post.title}</Link></li>
+                Option {post.id}: {post.title}</Link></li>
         ))
 
     return (
         <div className="Posts">
-            <h1>Posts</h1>
-            <ul>{postList}</ul>
-            <PostsLimit defaultLimit={limit}/>
+            <h1>Your Daily Workout and meal plan</h1>
+            <h3><ul>{postList}</ul></h3>
+            {/* <PostsLimit defaultLimit={limit}/> */}
         </div>
     )
 }
