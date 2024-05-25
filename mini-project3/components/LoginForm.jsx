@@ -11,8 +11,6 @@ function LoginForm() {
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [error, setError]= useState('');
-    // new state value for showing submission messages to user
-    const [submitResult, setSubmitResult] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // prevent page reloading on form submit
@@ -20,7 +18,7 @@ function LoginForm() {
           const res = await signIn('credentials',{userEmail, userPassword, redirect:false });
           
           if(res.error){
-            setError('Invalid User')
+            setError('Login Failed')
             return;
           }
           setTimeout(() =>{router.push('/workouts');},1000)
@@ -32,10 +30,7 @@ function LoginForm() {
         //     setSubmitResult('Password must be at least 5 characters long');
         // } else if (userPassword === userEmail) {
         //     setSubmitResult('Password must not match email address');
-        // } else {
-        //     //One second timeout to load page
-        //  setTimeout(() =>{router.push('/workouts');},1000);
-        //  }
+        // } 
     }
 
     return (
@@ -63,8 +58,7 @@ function LoginForm() {
                         placeholder="Password"
                         onChange={(e) => setUserPassword(e.target.value)} />
                 </div>        
-                <button className="button">Log In</button>
-                <p>{submitResult}</p>
+                <button className="button">Log In</button> <br />
                 { error && (
                 <div className="error">{error}</div>
                 )}

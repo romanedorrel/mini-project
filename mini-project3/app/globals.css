@@ -127,7 +127,7 @@ a {
   background-repeat: 'no-repeat',
 }
 .componentBox { 
-  border: none; 
+  border: 3px silver; 
   margin: 1em;
   padding: 4em;
    text-align: center;
