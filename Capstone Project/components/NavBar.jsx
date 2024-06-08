@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 function NavBar() {
     const path = usePathname();
-
+    //returns navbar for navigating through the application
     return (
         <nav className='NavBar'style={{backgroundColor: '#09193b', color: '#14bbe5'}}>
         <ul className='menu'> 

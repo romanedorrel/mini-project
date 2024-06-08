@@ -14,15 +14,15 @@ function LoginForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // prevent page reloading on form submit
-        try {
+        try {//fetches response from credentials authenticator for signing into to app
           const res = await signIn('credentials',{userEmail, userPassword, redirect:false });
           
           if(res.error){
             setError('Login Failed')
             return;
           }
+          //replaces signin page with workouts homepage after successfull login
             router.replace('workouts')
-        //    setTimeout(() =>{router.push('/workouts');},1000)
         } catch (error) {
             console.log('Error:', error)
         }
@@ -33,7 +33,7 @@ function LoginForm() {
         //     setError('Password must not match email address');
         // }
     }
-
+    //Return form for logging in
     return (
     <div className="login">
         <div><Image src='/project.png' width={250} height={250} className="mainLogo"alt='Logo'/></div>

@@ -1,16 +1,19 @@
 'use client'
 import { useState } from "react"
 import React from "react";
-
+//accepts onFormSubmit prop from workoutlist to return selections
 export default function Workouts({onFormSubmit}) {
+    //use state variables for capturing user selections
     const [filteredWorkout,setFilteredWorkout] = useState('');
     const [numberofWorkouts,setNumberOfWorkouts] = useState('5');
     const [fitnessLevel, setFitnessLevel] = useState('');
 
+    //handle the form submit by returning the selections to workoutlist
     const handlesubmit = (e) => {
         e.preventDefault();
         onFormSubmit(filteredWorkout,numberofWorkouts, fitnessLevel)
     }
+    //return radio form to the UI for user selections.
     return (
         <div>
             <h2>Please Select the muscle group you will be focusing on?</h2><br />

@@ -9,10 +9,9 @@ import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+//function for handling styling and animation of expand button
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -25,14 +24,16 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-
+//accepts props to create cards with
 export default function MealCard({name, id, image}) {
   const [expanded, setExpanded] = useState(false);
 
+  //handle expand card
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  //returns card with passed in information
   return (
     <Card className="card" sx={{ maxWidth: 345 }}>
       <CardHeader

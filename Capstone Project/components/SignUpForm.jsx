@@ -22,7 +22,7 @@ function SignUpForm() {
             setError("All fields are required");
             return;
         }
-        try {
+        try {//fectches signup from api signup route to then post to the body
           const res =  await fetch ('api/signup',{
                 method: "POST",
                 headers:{"Content-type": "application/json"},
@@ -30,6 +30,7 @@ function SignUpForm() {
                     firstName, lastName, userEmail, userPassword
                 })
             })
+            //if fetch and post is succesful form resets and routes user to login page
             if(res.ok){
                 const form = e.target;
                 form.reset();
@@ -42,7 +43,7 @@ function SignUpForm() {
         };
 
     }
-
+    //Return Sign up form for creating a user
     return (
     <div className="login">
         <div><Image src='/project.png' width={250} height={250} className="mainLogo"alt='Logo'/></div>

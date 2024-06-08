@@ -1,14 +1,16 @@
 
 import { useState } from "react"
 import React from "react";
-
+//accepts onformsubmit prop for returning user selection
 export default function MealsForm({onFormSubmit}) {
     const [category,setCategory] = useState('');
 
+    //handle submit by passing selection back to meal
     const handleMealSelection = (e) => {
         e.preventDefault();
         onFormSubmit(category);
     }
+    //returns form for selecting options for meals
     return (
         <div className="Meal">
             <h2>Select category for your auto-generated meal</h2><br />

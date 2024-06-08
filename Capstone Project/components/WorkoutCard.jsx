@@ -13,6 +13,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 
+//Mui function for handling the styling and animation of the expand aspect of the card.
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -24,13 +25,16 @@ const ExpandMore = styled((props) => {
     }),
   }));
 
+ //accepts props for styling cards 
 export default function WorkoutCard({ id, title, subtitle, description }) {
     const [expanded, setExpanded] = useState(false);
 
+    //handles the click for expanding and collapsing card
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    //returns the structure for a card when passed appropriate props
     return (
         <Card className='card'>
             

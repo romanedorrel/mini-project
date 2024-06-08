@@ -14,14 +14,14 @@ function ResetPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault(); // prevent page reloading on form submit
         setError(''); 
-        try {
+        try {//fetch resetpassword route from api to update user password
             const res =  await fetch ('api/resetpassword',{
                   method: "POST",
                   headers:{"Content-type": "application/json"},
                   body: JSON.stringify({
                        newPassword, userEmail
                   })
-              })
+              })//reset form and routes to login if fetch and update successful
               if(res.ok){
                   const form = e.target;
                   form.reset();
@@ -43,7 +43,7 @@ function ResetPassword() {
         //     setError('Password must not match email address');
         // }
     }
-
+    //return form for resetting user password
     return (
     <div className="login">
         <div><Image src='/project.png' width={250} height={250} className="mainLogo"alt='Logo'/></div>

@@ -2,11 +2,10 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import MealCard from "./MealsCard";
-import { Grid } from "@mui/material";
 import MealsForm from "./MealsForm";
-import { set } from "mongoose";
 
 
+//async function for getting a list of meals by categories
 async function getMeal(category){
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     if(!res.ok){
@@ -15,6 +14,7 @@ async function getMeal(category){
         return res.json()
     }
 }
+//async function for getting ingredients for a selected meal by passing meal id
 async function getIngredients(id){
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
     if(!res.ok){
@@ -30,10 +30,10 @@ export default function Meal(){
     
 
 
-    
+   //useEffect hook for fetching meals from the promise with category as a parameter and the category user selection as a dependency
     useEffect(()=> {
         async function fetchMeals(){
-         try{
+         try{//calls getMeal function and store response in the meals array
             const mealsData = await getMeal(category);
             setMeals(mealsData.meals);
          } catch(error) {
@@ -43,7 +43,7 @@ export default function Meal(){
         fetchMeals();  
         
     },[category]);
-
+    // useEffect hook for fectching ingredients from the promise using the meals array as a dependency and the meal id as a prop.
     useEffect(()=> {
         async function fetchIngredients(){
             if(meals.length > 0 ){
@@ -52,7 +52,7 @@ export default function Meal(){
                     [meals[i], meals[j]] = [meals[j], meals[i]];
                 }
             }
-         try{
+         try{//calls getingredients function and stores in single meal variable
             const fullMeal = await getIngredients(meals[0].idMeal);
             setMeal(fullMeal.meals[0]);
          } catch(error) {
@@ -62,16 +62,18 @@ export default function Meal(){
         fetchIngredients();  
         
     },[meals]);
-
+//handle the form submit and stores the category in a local state variable to allow use by useeffect
 const handleFormSubmit=(selectedCategory) => {
     setCategory(selectedCategory);
     }
 
     return (
         <div>
+            {/* passed onformsubmit to meals form to recieve user selections */}
             <div className="forms">
                 <MealsForm onFormSubmit={handleFormSubmit}/>
             </div>
+            {/* passing the selected meal to mealcard to be styled */}
               <div className="meal">
                  {meal && (    <MealCard 
                     name={meal.strMeal}
