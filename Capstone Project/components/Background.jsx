@@ -1,0 +1,16 @@
+import Image from "next/image";
+import React from "react";
+
+export default function Background() {
+    return (
+        <div>
+            <Image
+                className="bg-img"
+                src="/Space.jpg"
+                alt="Lion"
+                fill={true}
+        />
+        </div>
+        
+    )
+}
